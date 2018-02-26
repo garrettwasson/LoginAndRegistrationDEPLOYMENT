@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Success!</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'log_reg/css/styles.css' %}">
+</head>
+<body>
+    <h1>Success! Welcome, {{name}}, User ID {{user_id}}!</h1>
+    <p>Wasn't this the worst assignment ever?!</p>
+    <form action="/clear" method="POST">
+        {% csrf_token %}
+    <input type="submit" value="CLEAR" name="clear">
+    </form>
+</body>
+</html>

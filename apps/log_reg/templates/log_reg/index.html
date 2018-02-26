@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login And Registration</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'log_reg/css/styles.css' %}">
+</head>
+<body>
+    <div="content"></div>
+    <h1>Registration</h1>
+        <form action="/create" method='POST'>
+            {% csrf_token %}
+            <div id="form">
+                <label for="first_name">First Name:</label>
+                <input type="text" class="form_data" name="first_name">
+            </div>
+            <div id="form">
+                <label for="last_name">Last Name:</label>
+                <input type="text" class="form_data" name="last_name">
+            </div>
+            <div id="form">
+                <label for="email">Email:</label>
+                <input type="text" class="form_data" name="email">
+            </div>
+            <div id="form">
+                <label for="password">Password:</label>
+                <input type="text" class="form_data" name="password">
+            </div>
+            <div id="form">
+                <label for="confirm_password">Confirm Password:</label>
+                <input type="text" class="form_data" name="confirm_password">
+            </div>
+            <button type="submit" class="button-sub">Register</button>
+        </form>
+
+        <h1>Login</h1>
+        <form action="/login" method='POST'>
+            {% csrf_token %}
+            <div id="form">
+                <label for="email">Email:</label>
+                <input type="text" class="form_data" name="email">
+            </div>
+            <div id="form">
+                <label for="password">Password:</label>
+                <input type="text" class="form_data" name="password">
+            </div>
+            <button type="submit" class="button-login">Login</button>
+        </form>
+        
+        {% if messages %}
+        <ul id="messages">
+        {% for message in messages %}
+            <li>ERROR: {{message}}</li>
+        {% endfor %}
+        </ul>
+        {% endif %}
+</body>
+</html>
